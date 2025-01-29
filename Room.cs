@@ -1,18 +1,16 @@
-public class Room {
+public class Room
+{
+    public string Name { get; }
+    public int NumberOfDoors { get; }
+    public int NumberOfWindows { get; }
+    public List<Sensor> Sensors { get; } = new List<Sensor>();
 
-    private Sensor _sensor = new Sensor();
-    public string roomName {get ; set ; }
-    public int numOfDoors { get ; set ; }
-    public int numOfWindows { get ; set ; }
-    public double temperature => _sensor.getTemperature();
-    public double co2Level => _sensor.getCo2();
-    public bool isDoorOpen => _sensor.isDoorOpen();
-    public bool isWindowOpen => _sensor.isWindowOpen();
-
-
-    public Room (string Name, int Doors, int Windows){
-        roomName = Name;
-        numOfDoors = Doors;
-        numOfWindows = Windows;
+    public Room(string name, int doors, int windows)
+    {
+        Name = name;
+        NumberOfDoors = doors;
+        NumberOfWindows = windows;
     }
+
+    public void AddSensor(Sensor sensor) => Sensors.Add(sensor);
 }
